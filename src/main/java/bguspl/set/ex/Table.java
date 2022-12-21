@@ -35,6 +35,8 @@ public class Table {
      */
     private final boolean[][] tokensMatrix;
 
+    private boolean cantTouchMe;
+
     /**
      * Constructor for testing.
      *
@@ -48,6 +50,7 @@ public class Table {
         this.slotToCard = slotToCard;
         this.cardToSlot = cardToSlot;
         this.tokensMatrix=new boolean[env.config.players][12];
+        this.cantTouchMe = true;
     }
 
     /**
@@ -58,6 +61,14 @@ public class Table {
     public Table(Env env) {
 
         this(env, new Integer[env.config.tableSize], new Integer[env.config.deckSize]);
+    }
+
+    public void lockTable() {
+        this.cantTouchMe = true;
+    }
+
+    public void unlockTable() {
+        this.cantTouchMe = false;
     }
 
     /*
@@ -89,7 +100,7 @@ public class Table {
             StringBuilder sb = new StringBuilder().append("Hint: Set found: ");
             List<Integer> slots = Arrays.stream(set).mapToObj(card -> cardToSlot[card]).sorted().collect(Collectors.toList());
             int[][] features = env.util.cardsToFeatures(set);
-            System.out.println(sb.append("slots: ").append(slots).append(" features: ").append(Arrays.deepToString(features)));
+            // System.out.println(sb.append("slots: ").append(slots).append(" features: ").append(Arrays.deepToString(features)));
         });
     }
 
@@ -163,11 +174,11 @@ public class Table {
      * @param slot   - the slot on which to place the token.
      */
     public void placeToken(int player, int slot) {
-        if(!tokensMatrix[player][slot] && slotToCard[slot] != null){
+        if(!tokensMatrix[player][slot] && slotToCard[slot] != null && !this.cantTouchMe) {
             // there is a card present to place token upon and a token of the player was not placed already
             tokensMatrix[player][slot]=true;
             env.ui.placeToken(player, slot);
-            System.out.println(Thread.currentThread().getName() + " placed on " + slot);
+            // System.out.println(Thread.currentThread().getName() + " placed on " + slot);
         }
     }
 

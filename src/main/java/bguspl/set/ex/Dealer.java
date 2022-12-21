@@ -84,8 +84,9 @@ public class Dealer implements Runnable {
      * Adding a set claim
      * 
      * @param playerId - the player that claimed for a set
+     * @return         - true iff the player was inserted to the queue
      */
-    public void addClaim(int playerId) {
+    public boolean addClaim(int playerId) {
         boolean added = false;
         synchronized(setClaims) {
             // now dealer cant remove tokens and keypress is waiting so no change to the player tokens can be made
@@ -102,13 +103,15 @@ public class Dealer implements Runnable {
                 this.wakeup = true;
                 // make the playerThread wait on the dealer until a set is checked and then everybody are notified
                 synchronized(this) {
-                    System.out.println(Thread.currentThread() + " claimed set " + Arrays.toString(table.getPlayerTokensCards(playerId)) + " is waiting...");
+                    // System.out.println(Thread.currentThread() + " claimed set " + Arrays.toString(table.getPlayerTokensCards(playerId)) + " is waiting...");
                     while (setClaims.contains(playerId))
                         wait(100); 
-                    System.out.println(Thread.currentThread() + " Done waiting!");
+                    // System.out.println(Thread.currentThread() + " Done waiting!");
                 }
             } catch (InterruptedException ignored) {}
         }
+
+        return added;
     }
 
     /**
@@ -117,7 +120,7 @@ public class Dealer implements Runnable {
     private void timerLoop() {
         while (!terminate && System.currentTimeMillis() < reshuffleTime) {
             sleepUntilWokenOrTimeout();
-            System.out.println("dealer woke up");
+            // System.out.println("dealer woke up");
             updateTimerDisplay(false);
             removeCardsFromTable();
             placeCardsOnTable();
@@ -159,7 +162,7 @@ public class Dealer implements Runnable {
 
             // get the actual set
             int[] cards = table.getPlayerTokensCards(playerId);
-            System.out.println("Set claim being checked: player #" + playerId + " - " + Arrays.toString(cards));
+            // System.out.println("Set claim being checked: player #" + playerId + " - " + Arrays.toString(cards));
             if (cards.length != 3)
                 throw new UnsupportedOperationException("WTF?????????????????????????? " + cards.length);
             Set<Integer> playersToRemoveAndNotify = new HashSet<>();
@@ -171,11 +174,11 @@ public class Dealer implements Runnable {
                     playersToRemoveAndNotify.addAll(removeCardWithTokens(table.cardToSlot[card]));
 
                 players[playerId].point();
-                System.out.println("Set found!");
+                // System.out.println("Set found!");
             }
             else{
                 players[playerId].penalty();
-                System.out.println("Not a set :(");
+                // System.out.println("Not a set :(");
             }
 
             // remove players from the queue if needed, and notify everyone
@@ -188,6 +191,7 @@ public class Dealer implements Runnable {
      * @return      - set of players that their tokens were removed from this slot
      */
     private Set<Integer> removeCardWithTokens(int slot){
+        table.lockTable();
         Set<Integer> playersWithRemovedTokens = new HashSet<>();
 
         // remove the card
@@ -210,7 +214,7 @@ public class Dealer implements Runnable {
     private void removeAndNotifyAllPlayers(Set<Integer> playersSet) {
         synchronized (setClaims) {
             for (Integer p : playersSet){
-                System.out.println("Removing Player #" + p + " from set claims queue");
+                // System.out.println("Removing Player #" + p + " from set claims queue");
                 setClaims.remove(p);
             }
         }
@@ -238,6 +242,13 @@ public class Dealer implements Runnable {
             removeAllCardsFromTable();
             placeCardsOnTable();
         }
+        else if (deck.size() == 0 && env.util.findSets(Arrays.asList(table.slotToCard).stream().filter(Objects::nonNull).collect(Collectors.toList()), 1).size() == 0){
+            removeAllCardsFromTable();
+            terminate = true;
+        }
+
+        // finished placing cards
+        table.unlockTable();
     }
 
     /**
@@ -273,9 +284,15 @@ public class Dealer implements Runnable {
      * Returns all the cards from the table to the deck.
      */
     private void removeAllCardsFromTable() {
+        // start removing all cards
+        table.lockTable();
+
         Set<Integer> playersToRemoveAndNotify = new HashSet<>();
 
         for (int slot = 0; slot < env.config.tableSize; slot++){
+            // add the card back to the deck
+            if (table.slotToCard[slot] != null)
+                deck.add(table.slotToCard[slot]);
             playersToRemoveAndNotify.addAll(removeCardWithTokens(slot));
             updateTimerDisplay(true);
         }
@@ -284,11 +301,38 @@ public class Dealer implements Runnable {
     }
 
     /**
+     * Returns the players with highest score.
+     */
+    private int [] getHighestScores(){
+        int top=0;
+        //find the highest score among all players
+        for(Player p: players){
+            if(p.score()>=top){
+                top=p.score();
+            }
+        }
+        List<Integer> list=new ArrayList<>();
+        //check how many has this score and add them to list
+        for(Player p: players){
+            if(p.score()==top){
+                list.add(p.id);
+            }
+        }
+        int [] res=new int[list.size()];
+        for(int i=0; i<res.length; i++){
+            res[i]=list.get(i);
+        }
+        return res;
+    }
+
+    
+    /**
      * Check who is/are the winner/s and displays them.
      */
     private void announceWinners() {
+        // System.out.println("THE GAME IS FINISHED! number of sets left in deck: " + env.util.findSets(deck, 1));
+        env.ui.announceWinner(getHighestScores());
+        // System.out.println("The winners are players "+Arrays.toString(getHighestScores()));
         terminate();
-
-        System.out.println("THE GAME IS FINISHED! number of sets left in deck: " + env.util.findSets(deck, 1));
     }
 }

@@ -99,11 +99,11 @@ public class Player implements Runnable {
         if (!human) createArtificialIntelligence();
 
         while (!terminate) {
+            placeNextToken();
             synchronized (this) {
                 try { wait(); }
                 catch (InterruptedException ignored) {}
             }
-            placeNextToken();
         }
         if (!human) try { aiThread.join(); } catch (InterruptedException ignored) {}
         env.logger.info("thread " + Thread.currentThread().getName() + " terminated.");
@@ -142,8 +142,7 @@ public class Player implements Runnable {
      */
     public void terminate() {
         terminate = true;
-        // wait for player thread to finish
-        try { playerThread.join(); } catch (InterruptedException ignored) {}
+        playerThread.interrupt();
     }
 
     /**
