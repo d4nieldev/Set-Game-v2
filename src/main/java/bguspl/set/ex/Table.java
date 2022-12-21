@@ -140,19 +140,21 @@ public class Table {
     }
 
     /**
-     * Removes a card from a grid slot on the table.
+     * Removes a card from a grid slot on the table. If there is no card on the slot, do nothing
      * @param slot - the slot from which to remove the card.
      */
     public void removeCard(int slot) {
-        try {
-            Thread.sleep(env.config.tableDelayMillis);
-        } catch (InterruptedException ignored) {}
+        if (slotToCard[slot] != null) {
+            try {
+                Thread.sleep(env.config.tableDelayMillis);
+            } catch (InterruptedException ignored) {}
 
-        // take the card off the table (so no other player can place tokens on it)
-        cardToSlot[slotToCard[slot]] = null;
-        slotToCard[slot] = null;
+            // take the card off the table (so no other player can place tokens on it)
+            cardToSlot[slotToCard[slot]] = null;
+            slotToCard[slot] = null;
 
-        env.ui.removeCard(slot);
+            env.ui.removeCard(slot);
+        }
     }
 
     /**

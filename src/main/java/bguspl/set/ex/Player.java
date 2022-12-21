@@ -128,7 +128,7 @@ public class Player implements Runnable {
                 
                 keyPressed(keypress);
                 try {
-                    Thread.sleep(250);
+                    Thread.sleep(10);
                 } catch (InterruptedException ignored) {}
                 
             }
@@ -154,7 +154,6 @@ public class Player implements Runnable {
     public void keyPressed(int slot) {
         if (System.currentTimeMillis() >= freezeUntil) {
             // if the player is not frozen due to point or penalty
-            System.out.println(Thread.currentThread() + " pressed key " + slot);
             nextSlot = slot;
             try {
                 synchronized (this) { 

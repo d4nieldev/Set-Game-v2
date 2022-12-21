@@ -99,8 +99,7 @@ public class Dealer implements Runnable {
         if (added) {
             try{ 
                 // wake the dealer up
-                if (!this.wakeup)
-                    this.wakeup = true;
+                this.wakeup = true;
                 // make the playerThread wait on the dealer until a set is checked and then everybody are notified
                 synchronized(this) {
                     System.out.println(Thread.currentThread() + " claimed set " + Arrays.toString(table.getPlayerTokensCards(playerId)) + " is waiting...");
@@ -118,6 +117,7 @@ public class Dealer implements Runnable {
     private void timerLoop() {
         while (!terminate && System.currentTimeMillis() < reshuffleTime) {
             sleepUntilWokenOrTimeout();
+            System.out.println("dealer woke up");
             updateTimerDisplay(false);
             removeCardsFromTable();
             placeCardsOnTable();
@@ -183,7 +183,7 @@ public class Dealer implements Runnable {
         }
     }
 
-    /*
+    /**
      * @param slot  - the slot to remove the card and tokens from
      * @return      - set of players that their tokens were removed from this slot
      */
@@ -234,13 +234,10 @@ public class Dealer implements Runnable {
         }
 
         // check if there are no sets
-        if (env.util.findSets(Arrays.asList(table.slotToCard).stream().filter(Objects::nonNull).collect(Collectors.toList()), 1).size() == 0){
+        if (deck.size() > 0 && env.util.findSets(Arrays.asList(table.slotToCard).stream().filter(Objects::nonNull).collect(Collectors.toList()), 1).size() == 0){
             removeAllCardsFromTable();
             placeCardsOnTable();
         }
-
-        // let the dealer sleep
-        this.wakeup = false;
     }
 
     /**
@@ -252,6 +249,8 @@ public class Dealer implements Runnable {
                 Thread.sleep(100);
                 updateTimerDisplay(false);
             }
+            // sleep next time
+            this.wakeup = false;
         } 
         catch (InterruptedException ignored) {}
     }
