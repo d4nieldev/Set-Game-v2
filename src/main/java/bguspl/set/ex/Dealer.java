@@ -103,10 +103,8 @@ public class Dealer implements Runnable {
                 this.wakeup = true;
                 // make the playerThread wait on the dealer until a set is checked and then everybody are notified
                 synchronized(this) {
-                    // System.out.println(Thread.currentThread() + " claimed set " + Arrays.toString(table.getPlayerTokensCards(playerId)) + " is waiting...");
                     while (setClaims.contains(playerId))
                         wait(100); 
-                    // System.out.println(Thread.currentThread() + " Done waiting!");
                 }
             } catch (InterruptedException ignored) {}
         }
@@ -120,7 +118,6 @@ public class Dealer implements Runnable {
     private void timerLoop() {
         while (!terminate && System.currentTimeMillis() < reshuffleTime) {
             sleepUntilWokenOrTimeout();
-            // System.out.println("dealer woke up");
             updateTimerDisplay(false);
             removeCardsFromTable();
             placeCardsOnTable();
@@ -162,7 +159,6 @@ public class Dealer implements Runnable {
 
             // get the actual set
             int[] cards = table.getPlayerTokensCards(playerId);
-            // System.out.println("Set claim being checked: player #" + playerId + " - " + Arrays.toString(cards));
             if (cards.length != 3)
                 throw new UnsupportedOperationException("WTF?????????????????????????? " + cards.length);
             Set<Integer> playersToRemoveAndNotify = new HashSet<>();
@@ -174,11 +170,9 @@ public class Dealer implements Runnable {
                     playersToRemoveAndNotify.addAll(removeCardWithTokens(table.cardToSlot[card]));
 
                 players[playerId].point();
-                // System.out.println("Set found!");
             }
             else{
                 players[playerId].penalty();
-                // System.out.println("Not a set :(");
             }
 
             // remove players from the queue if needed, and notify everyone
@@ -214,7 +208,6 @@ public class Dealer implements Runnable {
     private void removeAndNotifyAllPlayers(Set<Integer> playersSet) {
         synchronized (setClaims) {
             for (Integer p : playersSet){
-                // System.out.println("Removing Player #" + p + " from set claims queue");
                 setClaims.remove(p);
             }
         }
@@ -330,9 +323,7 @@ public class Dealer implements Runnable {
      * Check who is/are the winner/s and displays them.
      */
     private void announceWinners() {
-        // System.out.println("THE GAME IS FINISHED! number of sets left in deck: " + env.util.findSets(deck, 1));
         env.ui.announceWinner(getHighestScores());
-        // System.out.println("The winners are players "+Arrays.toString(getHighestScores()));
         terminate();
     }
 }

@@ -100,7 +100,6 @@ public class Table {
             StringBuilder sb = new StringBuilder().append("Hint: Set found: ");
             List<Integer> slots = Arrays.stream(set).mapToObj(card -> cardToSlot[card]).sorted().collect(Collectors.toList());
             int[][] features = env.util.cardsToFeatures(set);
-            // System.out.println(sb.append("slots: ").append(slots).append(" features: ").append(Arrays.deepToString(features)));
         });
     }
 
@@ -178,7 +177,6 @@ public class Table {
             // there is a card present to place token upon and a token of the player was not placed already
             tokensMatrix[player][slot]=true;
             env.ui.placeToken(player, slot);
-            // System.out.println(Thread.currentThread().getName() + " placed on " + slot);
         }
     }
 
