@@ -14,6 +14,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.logging.Logger;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.verify;
@@ -54,10 +55,6 @@ class PlayerTest {
 
     @Test
     void point() {
-
-        // force table.countCards to return 3
-        when(table.countCards()).thenReturn(3); // this part is just for demonstration
-
         // calculate the expected score for later
         int expectedScore = player.score() + 1;
 
@@ -69,5 +66,17 @@ class PlayerTest {
 
         // check that ui.setScore was called with the player's id and the correct score
         verify(ui).setScore(eq(player.id), eq(expectedScore));
+    }
+
+    @Test
+    void penalty() {
+        // save freeze until time for comparison later
+        long freezeUntilBefore = player.getFreezeUntil();
+
+        // penalize the player
+        player.penalty();
+
+        // assert that the freeze until time changed after penalty
+        assertNotEquals(freezeUntilBefore, player.getFreezeUntil());
     }
 }
