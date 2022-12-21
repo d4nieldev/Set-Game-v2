@@ -1,0 +1,110 @@
+[01:08:12.269] [INFO   ] thread main starting.
+[01:08:12.277] [SEVERE ] cannot read configuration file config.properties trying from resources.
+[01:08:12.285] [SEVERE ] configuration file was loaded from resources directory.
+[01:08:12.788] [INFO   ] thread dealer starting.
+[01:08:12.788] [INFO   ] thread dealer starting.
+[01:08:12.788] [INFO   ] thread Player #0 starting.
+[01:08:12.788] [INFO   ] thread Player #1 starting.
+[01:08:12.902] [SEVERE ] placing card 25 in slot 0
+[01:08:12.902] [SEVERE ] updating countdown to 60000
+[01:08:12.902] [SEVERE ] setting player 1 freeze to -114
+[01:08:12.902] [SEVERE ] setting player 2 freeze to -114
+[01:08:13.009] [SEVERE ] placing card 23 in slot 1
+[01:08:13.010] [SEVERE ] updating countdown to 60000
+[01:08:13.010] [SEVERE ] setting player 1 freeze to -222
+[01:08:13.011] [SEVERE ] setting player 2 freeze to -223
+[01:08:13.116] [SEVERE ] placing card 12 in slot 2
+[01:08:13.117] [SEVERE ] updating countdown to 60000
+[01:08:13.118] [SEVERE ] setting player 1 freeze to -330
+[01:08:13.118] [SEVERE ] setting player 2 freeze to -330
+[01:08:13.221] [SEVERE ] placing card 67 in slot 3
+[01:08:13.221] [SEVERE ] updating countdown to 60000
+[01:08:13.221] [SEVERE ] setting player 1 freeze to -433
+[01:08:13.221] [SEVERE ] setting player 2 freeze to -433
+[01:08:13.324] [SEVERE ] placing card 38 in slot 4
+[01:08:13.324] [SEVERE ] updating countdown to 60000
+[01:08:13.324] [SEVERE ] setting player 1 freeze to -536
+[01:08:13.324] [SEVERE ] setting player 2 freeze to -536
+[01:08:13.429] [SEVERE ] placing card 76 in slot 5
+[01:08:13.429] [SEVERE ] updating countdown to 60000
+[01:08:13.429] [SEVERE ] setting player 1 freeze to -641
+[01:08:13.429] [SEVERE ] setting player 2 freeze to -641
+[01:08:13.537] [SEVERE ] placing card 29 in slot 6
+[01:08:13.537] [SEVERE ] updating countdown to 60000
+[01:08:13.537] [SEVERE ] setting player 1 freeze to -749
+[01:08:13.537] [SEVERE ] setting player 2 freeze to -749
+[01:08:13.649] [SEVERE ] placing card 18 in slot 7
+[01:08:13.649] [SEVERE ] updating countdown to 60000
+[01:08:13.649] [SEVERE ] setting player 1 freeze to -861
+[01:08:13.649] [SEVERE ] setting player 2 freeze to -861
+[01:08:13.762] [SEVERE ] placing card 61 in slot 8
+[01:08:13.762] [SEVERE ] updating countdown to 60000
+[01:08:13.762] [SEVERE ] setting player 1 freeze to -974
+[01:08:13.762] [SEVERE ] setting player 2 freeze to -974
+[01:08:13.874] [SEVERE ] placing card 68 in slot 9
+[01:08:13.874] [SEVERE ] updating countdown to 60000
+[01:08:13.874] [SEVERE ] setting player 1 freeze to -1086
+[01:08:13.874] [SEVERE ] setting player 2 freeze to -1086
+[01:08:13.988] [SEVERE ] placing card 3 in slot 10
+[01:08:13.988] [SEVERE ] updating countdown to 60000
+[01:08:13.988] [SEVERE ] setting player 1 freeze to -1200
+[01:08:13.988] [SEVERE ] setting player 2 freeze to -1200
+[01:08:14.096] [SEVERE ] placing card 5 in slot 11
+[01:08:14.096] [SEVERE ] updating countdown to 60000
+[01:08:14.096] [SEVERE ] setting player 1 freeze to -1308
+[01:08:14.096] [SEVERE ] setting player 2 freeze to -1308
+[01:08:14.204] [SEVERE ] updating countdown to 59892
+[01:08:14.204] [SEVERE ] setting player 1 freeze to -1416
+[01:08:14.204] [SEVERE ] setting player 2 freeze to -1416
+[01:08:14.309] [SEVERE ] updating countdown to 59787
+[01:08:14.309] [SEVERE ] setting player 1 freeze to -1521
+[01:08:14.309] [SEVERE ] setting player 2 freeze to -1521
+[01:08:14.413] [SEVERE ] updating countdown to 59683
+[01:08:14.413] [SEVERE ] setting player 1 freeze to -1625
+[01:08:14.413] [SEVERE ] setting player 2 freeze to -1625
+[01:08:14.515] [SEVERE ] updating countdown to 59581
+[01:08:14.515] [SEVERE ] setting player 1 freeze to -1727
+[01:08:14.515] [SEVERE ] setting player 2 freeze to -1727
+[01:08:14.619] [SEVERE ] updating countdown to 59477
+[01:08:14.619] [SEVERE ] setting player 1 freeze to -1831
+[01:08:14.619] [SEVERE ] setting player 2 freeze to -1831
+[01:08:14.725] [SEVERE ] updating countdown to 59371
+[01:08:14.725] [SEVERE ] setting player 1 freeze to -1937
+[01:08:14.725] [SEVERE ] setting player 2 freeze to -1937
+[01:08:14.837] [SEVERE ] updating countdown to 59259
+[01:08:14.837] [SEVERE ] setting player 1 freeze to -2049
+[01:08:14.837] [SEVERE ] setting player 2 freeze to -2049
+[01:08:14.949] [SEVERE ] updating countdown to 59147
+[01:08:14.949] [SEVERE ] setting player 1 freeze to -2161
+[01:08:14.949] [SEVERE ] setting player 2 freeze to -2161
+[01:08:14.956] [SEVERE ] key 81 was pressed by player 1
+[01:08:14.956] [SEVERE ] player 1 placing token on slot 0
+[01:08:15.055] [SEVERE ] updating countdown to 59041
+[01:08:15.055] [SEVERE ] setting player 1 freeze to -2267
+[01:08:15.055] [SEVERE ] setting player 2 freeze to -2267
+[01:08:15.168] [SEVERE ] updating countdown to 58928
+[01:08:15.168] [SEVERE ] setting player 1 freeze to -2380
+[01:08:15.168] [SEVERE ] setting player 2 freeze to -2380
+[01:08:15.246] [SEVERE ] key 87 was pressed by player 1
+[01:08:15.254] [SEVERE ] player 1 placing token on slot 1
+[01:08:15.277] [SEVERE ] updating countdown to 58819
+[01:08:15.277] [SEVERE ] setting player 1 freeze to -2489
+[01:08:15.277] [SEVERE ] setting player 2 freeze to -2489
+[01:08:15.381] [SEVERE ] updating countdown to 58715
+[01:08:15.381] [SEVERE ] setting player 1 freeze to -2593
+[01:08:15.381] [SEVERE ] setting player 2 freeze to -2593
+[01:08:15.487] [SEVERE ] updating countdown to 58609
+[01:08:15.487] [SEVERE ] setting player 1 freeze to -2699
+[01:08:15.487] [SEVERE ] setting player 2 freeze to -2699
+[01:08:15.567] [SEVERE ] key 69 was pressed by player 1
+[01:08:15.574] [SEVERE ] player 1 placing token on slot 2
+[01:08:15.588] [SEVERE ] updating countdown to 58508
+[01:08:15.588] [SEVERE ] setting player 1 freeze to -2800
+[01:08:15.588] [SEVERE ] setting player 2 freeze to -2800
+[01:08:15.588] [SEVERE ] updating countdown to 58508
+[01:08:15.588] [SEVERE ] setting player 1 freeze to -2800
+[01:08:15.588] [SEVERE ] setting player 2 freeze to -2800
+[01:08:15.596] [INFO   ] thread dealer terminated.
+[01:08:20.598] [SEVERE ] thanks for playing... it was fun!
+[01:08:20.598] [INFO   ] thread main terminated.
+[01:08:20.598] [SEVERE ] disposing of user interface elements

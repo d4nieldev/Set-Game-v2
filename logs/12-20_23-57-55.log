@@ -1,0 +1,65 @@
+[23:57:55.790] [INFO   ] thread main starting.
+[23:57:55.794] [SEVERE ] cannot read configuration file config.properties trying from resources.
+[23:57:55.796] [SEVERE ] configuration file was loaded from resources directory.
+[23:57:56.186] [INFO   ] thread dealer starting.
+[23:57:56.188] [INFO   ] thread dealer starting.
+[23:57:56.292] [SEVERE ] placing card 0 in slot 0
+[23:57:56.293] [SEVERE ] updating countdown to 60000
+[23:57:56.295] [SEVERE ] setting player 1 freeze to 109
+[23:57:56.296] [SEVERE ] setting player 2 freeze to 110
+[23:57:56.401] [SEVERE ] placing card 1 in slot 1
+[23:57:56.402] [SEVERE ] updating countdown to 60000
+[23:57:56.402] [SEVERE ] setting player 1 freeze to 216
+[23:57:56.402] [SEVERE ] setting player 2 freeze to 216
+[23:57:56.510] [SEVERE ] placing card 2 in slot 2
+[23:57:56.510] [SEVERE ] updating countdown to 60000
+[23:57:56.511] [SEVERE ] setting player 1 freeze to 325
+[23:57:56.511] [SEVERE ] setting player 2 freeze to 325
+[23:57:56.620] [SEVERE ] placing card 3 in slot 3
+[23:57:56.620] [SEVERE ] updating countdown to 60000
+[23:57:56.622] [SEVERE ] setting player 1 freeze to 436
+[23:57:56.622] [SEVERE ] setting player 2 freeze to 436
+[23:57:56.730] [SEVERE ] placing card 4 in slot 4
+[23:57:56.730] [SEVERE ] updating countdown to 60000
+[23:57:56.731] [SEVERE ] setting player 1 freeze to 545
+[23:57:56.731] [SEVERE ] setting player 2 freeze to 545
+[23:57:56.837] [SEVERE ] placing card 5 in slot 5
+[23:57:56.837] [SEVERE ] updating countdown to 60000
+[23:57:56.838] [SEVERE ] setting player 1 freeze to 652
+[23:57:56.838] [SEVERE ] setting player 2 freeze to 652
+[23:57:56.946] [SEVERE ] placing card 6 in slot 6
+[23:57:56.946] [SEVERE ] updating countdown to 60000
+[23:57:56.947] [SEVERE ] setting player 1 freeze to 761
+[23:57:56.947] [SEVERE ] setting player 2 freeze to 761
+[23:57:57.055] [SEVERE ] placing card 7 in slot 7
+[23:57:57.055] [SEVERE ] updating countdown to 60000
+[23:57:57.056] [SEVERE ] setting player 1 freeze to 870
+[23:57:57.056] [SEVERE ] setting player 2 freeze to 870
+[23:57:57.164] [SEVERE ] placing card 8 in slot 8
+[23:57:57.164] [SEVERE ] updating countdown to 60000
+[23:57:57.165] [SEVERE ] setting player 1 freeze to 979
+[23:57:57.165] [SEVERE ] setting player 2 freeze to 979
+[23:57:57.272] [SEVERE ] placing card 9 in slot 9
+[23:57:57.272] [SEVERE ] updating countdown to 60000
+[23:57:57.273] [SEVERE ] setting player 1 freeze to 1087
+[23:57:57.273] [SEVERE ] setting player 2 freeze to 1087
+[23:57:57.381] [SEVERE ] placing card 10 in slot 10
+[23:57:57.381] [SEVERE ] updating countdown to 60000
+[23:57:57.381] [SEVERE ] setting player 1 freeze to 1195
+[23:57:57.381] [SEVERE ] setting player 2 freeze to 1195
+[23:57:57.490] [SEVERE ] placing card 11 in slot 11
+[23:57:57.490] [SEVERE ] updating countdown to 60000
+[23:57:57.490] [SEVERE ] setting player 1 freeze to 1304
+[23:57:57.491] [SEVERE ] setting player 2 freeze to 1305
+[23:57:58.495] [SEVERE ] updating countdown to 58995
+[23:57:58.495] [SEVERE ] setting player 1 freeze to 2309
+[23:57:58.496] [SEVERE ] setting player 2 freeze to 2310
+[23:57:59.501] [SEVERE ] updating countdown to 57989
+[23:57:59.501] [SEVERE ] setting player 1 freeze to 3315
+[23:57:59.501] [SEVERE ] setting player 2 freeze to 3315
+[23:58:00.506] [SEVERE ] updating countdown to 56984
+[23:58:00.506] [SEVERE ] setting player 1 freeze to 4320
+[23:58:00.507] [SEVERE ] setting player 2 freeze to 4321
+[23:58:01.516] [SEVERE ] updating countdown to 55974
+[23:58:01.516] [SEVERE ] setting player 1 freeze to 5330
+[23:58:01.517] [SEVERE ] setting player 2 freeze to 5331
