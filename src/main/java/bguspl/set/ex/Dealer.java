@@ -63,7 +63,8 @@ public class Dealer implements Runnable {
      */
     @Override
     public void run() {
-        env.logger.info("thread " + Thread.currentThread().getName() + " starting.");
+        //NO need to info this in logger because ThreadLogger is doing it already.
+        //env.logger.info("thread " + Thread.currentThread().getName() + " starting.");
         for (Player p : players)
             new Thread(p, "Player #" + p.id).start();;
         
@@ -74,7 +75,8 @@ public class Dealer implements Runnable {
             removeAllCardsFromTable();
         }
         announceWinners();
-        env.logger.info("thread " + Thread.currentThread().getName() + " terminated.");
+        //NO need to info this in logger because ThreadLogger is doing it already.
+        //env.logger.info("thread " + Thread.currentThread().getName() + " terminated.");
     }
 
     /**
@@ -125,11 +127,12 @@ public class Dealer implements Runnable {
      * Called when the game should be terminated.
      */
     public void terminate() {
-        // terminate all players
+        // First we terminate all players
         for (Player p : players)
             p.terminate();
-
+        // then we terminate the dealer
         terminate = true;
+
     }
 
     /**
@@ -154,7 +157,7 @@ public class Dealer implements Runnable {
             // get the actual set
             int[] cards = table.getPlayerTokensCards(playerId);
             if (cards.length != 3)
-                throw new UnsupportedOperationException("WTF?????????????????????????? " + cards.length);
+                throw new UnsupportedOperationException("Something went wrong, no enough cards in set" + cards.length);
             Set<Integer> playersToRemoveAndNotify = new HashSet<>();
             
             // check if it is a set
