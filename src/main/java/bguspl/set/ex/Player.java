@@ -141,8 +141,8 @@ public class Player implements Runnable {
      * Called when the game should be terminated.
      */
     public void terminate() {
-        terminate = true;
         playerThread.interrupt();
+        terminate = true;
     }
 
     /**
