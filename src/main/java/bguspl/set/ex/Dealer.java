@@ -246,7 +246,7 @@ public class Dealer implements Runnable {
     private void sleepUntilWokenOrTimeout() {
         try {
             while(System.currentTimeMillis() < reshuffleTime && setClaims.size() == 0){
-                Thread.sleep(100);
+                Thread.sleep(30);
                 updateTimerDisplay(false);
             }
         } 
