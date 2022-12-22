@@ -50,15 +50,12 @@ public class Dealer implements Runnable {
 
     private final Queue<Integer> setClaims;
 
-    private volatile boolean wakeup;
-
     public Dealer(Env env, Table table, Player[] players) {
         this.env = env;
         this.table = table;
         this.players = players;
         deck = IntStream.range(0, env.config.deckSize).boxed().collect(Collectors.toList());
         this.setClaims = new LinkedList<>();
-        this.wakeup = false;
     }
 
     /**
@@ -99,8 +96,6 @@ public class Dealer implements Runnable {
         // PROBLEM: dealer removed the player token, so he removed him from the queue too and notified, then player sent to wait - nobody notifies him
         if (added) {
             try{ 
-                // wake the dealer up
-                this.wakeup = true;
                 // make the playerThread wait on the dealer until a set is checked and then everybody are notified
                 synchronized(this) {
                     while (setClaims.contains(playerId))
@@ -156,7 +151,6 @@ public class Dealer implements Runnable {
             synchronized (setClaims) {
                 playerId = setClaims.remove();
             }
-
             // get the actual set
             int[] cards = table.getPlayerTokensCards(playerId);
             if (cards.length != 3)
@@ -174,7 +168,6 @@ public class Dealer implements Runnable {
             else{
                 players[playerId].penalty();
             }
-
             // remove players from the queue if needed, and notify everyone
             removeAndNotifyAllPlayers(playersToRemoveAndNotify);
         }
@@ -249,12 +242,10 @@ public class Dealer implements Runnable {
      */
     private void sleepUntilWokenOrTimeout() {
         try {
-            while(!this.wakeup && System.currentTimeMillis() < reshuffleTime){
+            while(System.currentTimeMillis() < reshuffleTime && setClaims.size() == 0){
                 Thread.sleep(100);
                 updateTimerDisplay(false);
             }
-            // sleep next time
-            this.wakeup = false;
         } 
         catch (InterruptedException ignored) {}
     }

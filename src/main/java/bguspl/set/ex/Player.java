@@ -175,7 +175,6 @@ public class Player implements Runnable {
             while (table.countTokens(id) == 3 && !penalized)
                 dealer.addClaim(id);
             
-
             penalized = false;
             
             // less than 3 tokens or penalized - notify the keypresses thread to accept keypresses
