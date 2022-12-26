@@ -10,7 +10,7 @@ The game starts with 12 drawn cards from the deck that are placed on a 3x4 grid 
 <br />
 The goal of each player is to find a combination of three cards from the cards on the table that are said to make up a *legal set*.
 <br />
-A *legal set* is defined as a set of 3 cards, that for each one of the four features — color, number, shape, and shading — the three cards must display that feature as either **all the same** or **all different**.
+A *legal set* is defined as a set of 3 cards, that for each one of the four features — color, number, shape, and shading - the three cards must display that feature as either **all the same** or **all different**.
 <br />
 In other words, for each feature the three cards must avoid having two cards showing one version of the feature and the remaining card showing a different
 version.
@@ -56,3 +56,5 @@ The *bots* are simulated by **threads** that continually produce random key pres
 All the entities in this game are configured to work with the values in the configuration file.
 <br />
 You are free to play with it and choose your own settings.
+
+# Have Fun!
