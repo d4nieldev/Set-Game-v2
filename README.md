@@ -1,7 +1,5 @@
 # Introduction
-In this project I implemented a simple version of the game "Set". 
-<br />
-A description of the original game can be found here: ![Set Card Game](https://en.wikipedia.org/wiki/Set_(card_game)).
+In this project I implemented a simple version of the game "Set". A description of the original game can be found here: ![Set Card Game](https://en.wikipedia.org/wiki/Set_(card_game)).
 
 # My Version of the Game
 The game contains a deck of 81 cards. Each card contains a drawing with four features (color, number, shape, shading).
