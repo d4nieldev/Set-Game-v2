@@ -264,7 +264,7 @@ public class Dealer implements Runnable {
                             reshuffleTime - System.currentTimeMillis() < env.config.turnTimeoutWarningMillis);
 
         for (Player p : players)
-            env.ui.setFreeze(p.id, p.getFreezeUntil() - System.currentTimeMillis());
+            env.ui.setFreeze(p.id, Math.max(p.getFreezeUntil() - System.currentTimeMillis(), 0) );
     }
 
     /**
